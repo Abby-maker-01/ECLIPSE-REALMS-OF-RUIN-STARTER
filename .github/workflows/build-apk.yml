@@ -17,6 +17,10 @@ jobs:
           java-version: 21
       - uses: android-actions/setup-android@v4
       - run: npm install
+      - name: Siapkan file game
+        run: |
+          mkdir -p www
+          cp index.html style.css game.js www/
       - run: npx cap add android
         continue-on-error: true
       - run: npx cap sync android
